@@ -44,11 +44,20 @@ class Bank{
         friend void applyInterest(Bank b1);
 };
 
+void applyInterest(Bank b1){
+    float rate = 5;
+    float interest_amt = b1.balance*(rate/100); 
+    b1.balance = b1.balance + interest_amt;
+    b1.display();
+}
+
 int main(){
     Bank b1(123,0);
-    b1.deposit(10000);
+    b1.deposit(10500);
     b1.withdraw(500);
     b1.display();
+
+    applyInterest(b1);
 
     return 0;
 }
